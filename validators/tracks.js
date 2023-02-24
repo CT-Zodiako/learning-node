@@ -1,44 +1,56 @@
-const {check} = require('express-validator')
-const validateResults =require('../utils/handleValidator')
+const { check } = require('express-validator')
+const validateResults = require('../utils/handleValidator')
 
 const validatorCreateItem = [
     check("name")
-    .exists()
-    .notEmpty(),
+        .exists()
+        .notEmpty(),
     check("album")
-    .exists()
-    .notEmpty(),
+        .exists()
+        .notEmpty(),
     check("cover")
-    .exists()
-    .notEmpty(),
+        .exists()
+        .notEmpty(),
     check("artist")
-    .exists()
-    .notEmpty(),
+        .exists()
+        .notEmpty(),
     check("artist.name")
-    .exists()
-    .notEmpty(),
+        .exists()
+        .notEmpty(),
     check("artist.nickname")
-    .exists()
-    .notEmpty(),
+        .exists()
+        .notEmpty(),
     check("artist.nationality")
-    .exists()
-    .notEmpty(),
+        .exists()
+        .notEmpty(),
     check("duration")
-    .exists()
-    .notEmpty(),
+        .exists()
+        .notEmpty(),
     check("duration.start")
-    .exists()
-    .notEmpty(),
+        .exists()
+        .notEmpty(),
     check("duration.end")
-    .exists()
-    .notEmpty(),
+        .exists()
+        .notEmpty(),
     check("mediaId")
-    .exists()
-    .notEmpty()
-    .isMongoId(),
-    (req,res,next) => {
-        validateResults(req,res,next)
+        .exists()
+        .notEmpty()
+        .isMongoId(),
+    (req, res, next) => {
+        validateResults(req, res, next)
     }
 ]
 
-module.exports= {validatorCreateItem}
+const validtadorGetItem = [
+
+
+    check("id")
+        .exists()
+        .notEmpty()
+        .isMongoId(),
+    (req, res, next) => {
+        validateResults(req, res, next)
+    }
+
+]
+module.exports = { validatorCreateItem, validtadorGetItem }

@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const moongoseDelete = require("mongoose-delete")
 
 const TracksScheme = new mongoose.Schema(
   {
@@ -47,4 +48,5 @@ const TracksScheme = new mongoose.Schema(
   }
 );
 
+TracksScheme.plugin(moongoseDelete, { overrideMethods: 'all' })
 module.exports = mongoose.model("tracks", TracksScheme);
