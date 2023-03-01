@@ -7,9 +7,7 @@ const { handleHttpError } = require("../utils/handleError");
  * @param {*} req
  * @param {*} res
  */
-
 const getItems = async (req, res) => {
-
   try {
     const data = await tracksModel.find({});
     res.send({ data });
@@ -37,7 +35,7 @@ const getItem = async (req, res) => {
 };
 
 /**
- * insertar un resgitro
+ * Insertar un resgitro
  * @param {*} req
  * @param {*} res
  */
@@ -53,6 +51,11 @@ const createItem = async (req, res) => {
 
 };
 
+/**
+ * Actualizar un registro
+ * @param {*} req
+ * @param {*} res
+ */
 const updateItem = async (req, res) => {
   try {
 
@@ -71,7 +74,7 @@ const updateItem = async (req, res) => {
  * @param {*} req
  * @param {*} res
  */
-const deleteItem = async (req, res) => { 
+const deleteItem = async (req, res) => {
   try {
     req = matchedData(req)
     const { id } = req
